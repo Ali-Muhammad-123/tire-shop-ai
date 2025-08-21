@@ -3,6 +3,7 @@ import os
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from openai import OpenAI
+from typing import Any
 import json
 import re
 from dotenv import load_dotenv
@@ -27,7 +28,7 @@ class QueryRequest(BaseModel):
 
 
 class QueryResponse(BaseModel):
-    result: str
+    result: Any
 
 
 def clean_to_json(raw_text: str):
