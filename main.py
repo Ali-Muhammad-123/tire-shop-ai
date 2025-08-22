@@ -80,6 +80,7 @@ def find_reference(req: QueryRequest):
             input=req.query,
         )
 
+        print(f"Response: {response}")
         # Safely extract the text output
         result_text = getattr(response, "output_text", None)
         if not result_text:
