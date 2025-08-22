@@ -75,7 +75,7 @@ def find_reference(req: QueryRequest):
             model="gpt-5-nano",
             prompt={
                 "id": "pmpt_68a79bb2a2748193ae50edb75dc791fc0271289fe1eedd4d",
-                "version": "5",
+                "version": "10",
             },
             input=req.query,
         )
