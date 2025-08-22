@@ -6,6 +6,7 @@ from openai import OpenAI
 from typing import Any
 import json
 import re
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env file
@@ -17,6 +18,14 @@ load_dotenv()  # Load environment variables from .env file
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 app = FastAPI(title="Reference Finder API", version="1.0.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://thetiredeal.com"],  # only allow your frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],  # allow all methods (GET, POST, etc.)
+    allow_headers=["*"],  # allow all headers
+)
 
 ASSISTANT_ID = "asst_3CF1iUqL11WbPZe1F805LhLm"
 
